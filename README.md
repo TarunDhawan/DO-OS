@@ -188,3 +188,44 @@ DO-OS exists to turn that reality into an advantage.
 
 ---
 
+
+## Base launch tracking system (daily progress + release notes + screenshots)
+
+A starter tracking system is available via `tools/do_os_tracker.py`.
+
+### 1) Initialize tracking files
+
+```bash
+python tools/do_os_tracker.py init
+```
+
+This creates:
+
+- `.do-os/progress/` (daily progress files by date)
+- `.do-os/release-notes.md` (ongoing release log)
+- `.do-os/screenshots.md` (registry of launch screenshots)
+- `.do-os/manifest.json` (tracker metadata)
+
+### 2) Track daily progress
+
+```bash
+python tools/do_os_tracker.py progress add "Finalized onboarding copy"
+python tools/do_os_tracker.py progress list --date 2026-02-09
+```
+
+### 3) Add release notes
+
+```bash
+python tools/do_os_tracker.py release add v0.1.0 "Launch checklist automation" "PM + GTM" "Asha" "Initial production rollout"
+python tools/do_os_tracker.py release list
+```
+
+### 4) Register important screenshots for launch
+
+```bash
+python tools/do_os_tracker.py screenshot add "Onboarding" "artifacts/onboarding.png" "New first-run flow" critical
+python tools/do_os_tracker.py screenshot list
+```
+
+Use `templates/daily-progress-template.md` as a reference structure when editing progress files manually.
+
